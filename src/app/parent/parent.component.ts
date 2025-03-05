@@ -9,8 +9,6 @@ import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router'
   styleUrl: './parent.component.scss'
 })
 export class ParentComponent {
-	
-	private router = inject(Router);
 
 	items = [
 		{ id: 1, name: "item 1" },
@@ -19,6 +17,8 @@ export class ParentComponent {
 		{ id: 4, name: "item 4" },
 		{ id: 5, name: "item 5" }
 	];
+
+	constructor(private router: Router) {}
 
 	goToTemplate(id: number, name: string) {
 		this.router.navigate(['/template'], {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { inject } from '@angular/core';
 
@@ -12,11 +12,10 @@ export class TemplatePageComponent {
 	itemId?: number;
 	itemName?: string;
 
-	route = inject(ActivatedRoute);
-	location = inject(Location);
+	constructor(private route: ActivatedRoute) {}
 
 	ngOnInit(): void {
-		this.route.queryParams.subscribe((params) => {
+		this.route.queryParams.subscribe(params => {
 			this.itemId = params['id'];
 			this.itemName = params['name'];
 		});
